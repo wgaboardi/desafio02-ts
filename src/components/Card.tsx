@@ -1,15 +1,33 @@
-interface ICard {
-  id: number,
-  paragraph: string,
-  details: string
+import { 
+  AbsoluteCenter,
+  Center,
+  Input,
+  Box,
+} from '@chakra-ui/react'
+
+import { Botao } from './Botao/Botao';
+
+interface IButton {
+  titulo: string,
+  evento: any;
 }
 
-export const Card = ({ id, paragraph, details }: ICard) => {
+export const Card = ({ titulo, evento }: IButton) => {
   return(
-    <div>
-      <h1>Card {id}</h1>
-      <p>{paragraph}</p>
-      <p>{details}</p>
-    </div>
+    <Box position='relative' minHeight='91vh' backgroundColor='#021f0d' padding='25px'>
+          <AbsoluteCenter>
+          <Box backgroundColor='#FFFFFF' borderRadius='25px' padding='15px' maxWidth='50vh' >
+          <Center>
+            <h1>Faça o login</h1>
+          </Center>
+          <Input placeholder="email" />
+          <Input placeholder="password" />
+          <Center>
+            
+            <Botao titulo='Entrar' funcao={evento}/>
+          </Center>
+        </Box>
+        </AbsoluteCenter>
+        </Box>
   )
 }
