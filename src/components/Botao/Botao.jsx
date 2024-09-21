@@ -1,9 +1,14 @@
 import './Botao.css'
 
-export const Botao = ({titulo, funcao}) => {
+interface IButton {
+  titulo: string,
+  onClick: MouseEventHandler
+}
+
+export const Botao = ({titulo, onClick}: IButton) => {
   return (
     <div className='botao'>
-      <button onClick={funcao}>{titulo}</button>
+      <button onClick={onClick}>{titulo}</button>
     </div>
   );
 }
