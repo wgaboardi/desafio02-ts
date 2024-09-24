@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { api } from '../services/api';
 import { useParams, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Center, SimpleGrid, Spinner } from '@chakra-ui/react';
 import CardInfo from '../components/CardInfo/CardInfo';
+import { AppContext } from '../components/AppContext';
+
 
 interface UserData {
   email: string;
@@ -13,10 +15,14 @@ interface UserData {
 }
 
 const Conta = () => {
-  
-  const [userData, setUserData] = useState(null);
+  const { isLoggedIn } = useContext(AppContext)
   
   const {id} = useParams()
+  const navigate = useNavigate()
+  
+  !isLoggedIn && navigate('/');
+  
+  const [userData, setUserData] = useState(null);
 
   //const token = localStorage.getItem('token');
   useEffect(() => {
@@ -31,7 +37,6 @@ const Conta = () => {
     }
   , []);
 
-  const navigate = useNavigate()
   
   if (userData && id !== userData.id) {
     alert('Acesso não permitido!');

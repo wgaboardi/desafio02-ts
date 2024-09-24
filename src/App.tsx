@@ -1,26 +1,26 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home';
-import Conta from './Pages/Conta';
+import { BrowserRouter } from 'react-router-dom';
 import { Center, ChakraProvider  } from '@chakra-ui/react';
 import { Layout } from './components/Layout';
-import ContaInfo from './Pages/ContaInfo';
+import AppContextProvider from './components/AppContext';
+import MainRoutes from './routes';
+import { createLocalStorage, getAllLocalStorage } from './services/storage';
 
 function App() {
+
+  {!getAllLocalStorage() && createLocalStorage()}
 
   return (
 
     <BrowserRouter>
+    <AppContextProvider>
         <ChakraProvider>
           <Layout>
             <Center backgroundColor='#021f0d' minHeight='91vh'>
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/conta/:id" element={<Conta />}></Route>
-              <Route path="/containfo" element={<ContaInfo />}></Route>
-            </Routes>
+                <MainRoutes/>
             </Center>
             </Layout>
       </ChakraProvider>
+      </AppContextProvider>
     </BrowserRouter>
   );
 }
