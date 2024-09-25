@@ -6,7 +6,7 @@ import MainRoutes from './routes';
 import { createLocalStorage, getAllLocalStorage } from './services/storage';
 
 function App() {
-
+  // eslint-disable-next-line no-lone-blocks
   {!getAllLocalStorage('diobank') && createLocalStorage('diobank', '{login: false}')}
 
   return (

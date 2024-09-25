@@ -16,7 +16,6 @@ describe('storage', () => {
     createLocalStorage('diobank', dioBank)
     expect(mockSetItem).toHaveBeenCalledWith('diobank',JSON.stringify(dioBank))
   })
-
   it('Deve alterar o objeto no  local storage', () => {
     const mockSetItem = jest.spyOn(Storage.prototype, 'setItem')
     changeLocalStorage('diobank', dioBank)

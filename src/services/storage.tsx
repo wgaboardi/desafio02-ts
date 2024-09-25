@@ -2,7 +2,6 @@
 const dioBank = {
   login: false
 }
-
 export const getAllLocalStorage = (type: string): string | null => {
   const content = localStorage.getItem(type);
   return (content);

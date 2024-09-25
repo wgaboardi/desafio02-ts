@@ -12,8 +12,6 @@ import { AppContext } from '../AppContext'
 import { useNavigate } from 'react-router-dom'
 import { changeLocalStorage } from '../../services/storage'
 
-
-
 export const Header  = () => {
   const context = useContext(AppContext)
   const { isLoggedIn, setIsLoggedIn } = context

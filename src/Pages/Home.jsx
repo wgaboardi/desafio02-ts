@@ -17,7 +17,6 @@ const Home = () => {
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
-   
   const validateUser = async (email: string, password: string) =>{
       const loggedIn = await login(email, password)
       if (!loggedIn) {

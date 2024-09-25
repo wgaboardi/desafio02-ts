@@ -62,7 +62,6 @@ const Conta = () => {
     </Link>
     </Center>
       </SimpleGrid>
-
     </Center>
   );
 }
