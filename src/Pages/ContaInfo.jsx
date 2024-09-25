@@ -1,4 +1,4 @@
-import { Box, Center, Flex, SimpleGrid, Spacer, Text } from '@chakra-ui/react';
+import { Box, Center, SimpleGrid, Spacer, Text } from '@chakra-ui/react';
 import { useContext, useEffect ,useState} from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from '../components/AppContext';
