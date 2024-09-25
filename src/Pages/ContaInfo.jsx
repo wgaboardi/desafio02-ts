@@ -27,7 +27,6 @@ const ContaInfo = () => {
     getData()
     }
   , []);
-console.log(id)
   
   if (userData && id !== userData.id) {
     alert('Acesso não permitido!');
