@@ -11,19 +11,21 @@ import { changeLocalStorage } from '../services/storage';
 
 
 const Home = () => {
-  const [email, setEmail] = useState('')
+  const { setIsLoggedIn, user } = useContext(AppContext)
+  console.log('context', useContext(AppContext))
+  const [email, setEmail] = useState(user)
   const [password, setPassword] = useState('')
-  const { setIsLoggedIn } = useContext(AppContext)
   const navigate = useNavigate()
 
    
-  const validateUser = async (email: string) =>{
-      const loggedIn = await login(email)
+  const validateUser = async (email: string, password: string) =>{
+      const loggedIn = await login(email, password)
       if (!loggedIn) {
-        return alert('Email inválido!')
+        return alert('Email ou Senha inválida!')
       }
       setIsLoggedIn(true)
-      changeLocalStorage({ login: true})
+      changeLocalStorage('diobank',{ login: true})
+      changeLocalStorage('diouser',{ email: email })
       return navigate('/conta/1')
   }
 
@@ -38,7 +40,7 @@ const Home = () => {
           <Input placeholder="email" type="email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
           <Input placeholder="password" type="password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
           <Center>
-            <Botao titulo='Entrar' onClick={() => validateUser(email)}/>
+            <Botao titulo='Entrar' onClick={() => validateUser(email, password)}/>
           </Center>
         </Box>
        </AbsoluteCenter>

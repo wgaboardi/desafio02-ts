@@ -7,7 +7,7 @@ import { createLocalStorage, getAllLocalStorage } from './services/storage';
 
 function App() {
 
-  {!getAllLocalStorage() && createLocalStorage()}
+  {!getAllLocalStorage('diobank') && createLocalStorage('diobank', '{login: false}')}
 
   return (
 

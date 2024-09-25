@@ -20,7 +20,7 @@ export const Header  = () => {
   const navigate = useNavigate()
 
   const logout = () => {
-    changeLocalStorage({login:false})
+    changeLocalStorage('diobank',{login:false})
     setIsLoggedIn(false)
     navigate('/')
   }

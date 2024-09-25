@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { api } from '../services/api';
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react';
-import { Center, SimpleGrid, Spinner } from '@chakra-ui/react';
+import { Center, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import CardInfo from '../components/CardInfo/CardInfo';
 import { AppContext } from '../components/AppContext';
 
@@ -56,7 +56,13 @@ const Conta = () => {
         </>
         )
         }
+        <Center>
+      <Link to={`/containfo/${id}`}>
+      <Text fontSize='xl' color='white'>Ir para dados pessoais</Text>
+    </Link>
+    </Center>
       </SimpleGrid>
+
     </Center>
   );
 }
