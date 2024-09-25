@@ -38,7 +38,7 @@ console.log(id)
     <Box w='50px' >
       <Center>
     <SimpleGrid>
-      <Text>Informações da conta </Text>
+      <Text>Informações da conta</Text>
     <Spacer/>  
     <CardInfo mainContent={userData?.name} content=      {userData?.email}/>
     <Spacer/>  
